@@ -3,8 +3,8 @@ export default class Airport {
     this._name = name;
     this._code = code;
   }
-}
 
-Airport.prototype.toString = function airporttoString() {
-  return `[Object ${this._code}]`;
-};
+  get [Symbol.toStringTag]() {
+    return `${this._code}`;
+  }
+}
