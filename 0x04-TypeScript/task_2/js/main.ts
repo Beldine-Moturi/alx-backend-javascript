@@ -46,3 +46,9 @@ const isDirecor = (employee: Director | Teacher): boolean => employee instanceof
 function executeWork(employee: any) {
     return isDirecor(employee) === true ? employee.workDirectorTasks: employee.workTeacherTasks();
 }
+
+
+// literal types
+
+type Subjects = 'Math' | 'History';
+let teachClass = (todayClass: Subjects): string => todayClass === 'Math' ? 'Teaching Math': 'Teaching History'; 
