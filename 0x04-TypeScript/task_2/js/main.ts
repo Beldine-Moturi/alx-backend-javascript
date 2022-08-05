@@ -41,3 +41,8 @@ export function createEmployee(salary: number | string): Director | Teacher {
     return typeof salary === 'number' && salary < 500 ? new Teacher() : new Director();
 }
 
+const isDirecor = (employee: Director | Teacher): boolean => employee instanceof Director
+
+function executeWork(employee: any) {
+    return isDirecor(employee) === true ? employee.workDirectorTasks: employee.workTeacherTasks();
+}
