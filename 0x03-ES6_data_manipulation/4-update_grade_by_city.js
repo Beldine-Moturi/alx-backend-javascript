@@ -1,9 +1,8 @@
-export default function updateStudentGradeByCity(arrList, city, newGrades) {
-  const newlist = [];
-  for (let grade of newGrades) {
-    let list = arrList.filter((obj) => obj.id === grade.studentId)
-      .map((obj) => obj.grade = grade.grade);
-    newlist.push(list);
-  }
-  return newlist;
-}
+export default function updateStudentGradeByCity(getListStudents, city, newGrades) {
+  const newList = getListStudents.filter((obj) => obj.location === city);
+  newList.forEach(element => {
+    const grade = newGrades.find((obj) => obj.studentId === element.id);
+    element.grade = grade !== undefined ? grade.grade: 'N/A';
+  });
+  return newList;
+} 
