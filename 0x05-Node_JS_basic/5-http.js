@@ -12,7 +12,7 @@ function getStudentData(path) {
   try {
     content = fs.readFileSync(path, 'utf-8');
   } catch (error) {
-    return ('Fail!');
+    return ('Cannot load the database');
   }
 
   const students = content.split(/\r?\n/).filter(Boolean).slice(1);
@@ -48,12 +48,8 @@ const app = http.createServer((req, res) => {
     res.end('Hello Holberton School!');
   } else if (req.url === '/students') {
     let data = getStudentData(path);
-    if (data === 'Fail!') {
-      res.end('Cannot load the database');
-    } else {
-      data = `This is the list of our students\n${data}`;
-      res.end(data);
-    }
+    data = `This is the list of our students\n${data}`;
+    res.end(data);
   }
 });
 app.listen(port, hostname);
