@@ -24,3 +24,9 @@ describe("test rounding off numbers", function() {
         assert.equal(calculateNumber(1.5, 3.7), 6);
     });
 });
+
+describe("calculates two floats rounded down:", function() {
+    it("retuns 4", function() {
+        assert.strictEqual(calculateNumber(1.2, 3.1), 4);
+    });
+});
